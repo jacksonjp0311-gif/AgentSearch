@@ -177,7 +177,7 @@ class ProtocolTests(unittest.TestCase):
 
     def test_subprocess_cli_jsonl_and_mcp_with_persisted_index(self):
         with tempfile.TemporaryDirectory() as temporary:
-            base = Path(temporary)
+            base = Path(temporary).resolve()
             root = base / "source with spaces"
             root.mkdir()
             source = root / "研究 calibration.py"

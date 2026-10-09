@@ -11,7 +11,7 @@ from agentsearch import SearchConfig, SearchEngine
 class IntegrityTests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.TemporaryDirectory(prefix="agentsearch-integrity-")
-        self.base = Path(self.tmp.name)
+        self.base = Path(self.tmp.name).resolve()
         self.root = self.base / "root"
         self.root.mkdir()
         self.db = self.base / "state" / "index.sqlite3"

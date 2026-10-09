@@ -20,6 +20,32 @@ class NativeRegressions(unittest.TestCase):
                 self.assertEqual(receipt(p)['sha256'],hashlib.sha256(b'edited bytes').hexdigest())
                 self.assertEqual(e.index()['updated'],0)
 
+    @unittest.skipUnless(os.name == 'nt', 'Windows short-name test')
+    def test_short_alias_read_and_excluded_directory(self):
+        import ctypes
+        from ctypes import wintypes
+        with tempfile.TemporaryDirectory(prefix='agentsearch-long-alias-') as d:
+            base = Path(d).resolve()
+            root = base / 'authorized project'; root.mkdir()
+            target = root / 'source.txt'; target.write_text('alias evidence')
+            excluded = root / 'excluded directory'; excluded.mkdir()
+            secret = excluded / 'private.txt'; secret.write_text('private')
+            function = ctypes.WinDLL('kernel32', use_last_error=True).GetShortPathNameW
+            function.argtypes = (wintypes.LPCWSTR, wintypes.LPWSTR, wintypes.DWORD)
+            function.restype = wintypes.DWORD
+            def short(path):
+                buffer = ctypes.create_unicode_buffer(32768)
+                self.assertGreater(function(str(path), buffer, len(buffer)), 0)
+                return buffer.value
+            alias = short(target)
+            if alias.casefold() == str(target).casefold():
+                self.skipTest('Volume does not generate DOS short names')
+            with SearchEngine(base / 'index.sqlite3', SearchConfig((str(root),), exclude_dirs=('excluded directory',))) as engine:
+                engine.index()
+                self.assertEqual(engine.read(alias)['text'], 'alias evidence')
+                with self.assertRaises(ValueError):
+                    engine.read(short(secret))
+
     def test_growing_evidence_never_reads_without_bound(self):
         with tempfile.TemporaryDirectory() as d:
             p=Path(d)/'grow';p.write_bytes(b'a')

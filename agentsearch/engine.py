@@ -20,7 +20,7 @@ import stat
 import time
 from typing import Any
 
-from .config import SearchConfig, is_reparse
+from .config import SearchConfig, is_reparse, expand_windows_alias
 from ._version import VERSION
 from .file_identity import identity
 
@@ -248,7 +248,7 @@ class SearchEngine:
         candidate = Path(_text(str(value), "path", 32768)).expanduser()
         if not candidate.is_absolute():
             raise ValueError("Use an absolute path inside a configured root.")
-        candidate = Path(os.path.abspath(candidate))
+        candidate = expand_windows_alias(Path(os.path.abspath(candidate)))
         root = next((Path(r) for r in self.config.roots if candidate.is_relative_to(Path(r))), None)
         if root is None:
             raise ValueError("Path is outside configured roots.")

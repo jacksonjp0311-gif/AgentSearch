@@ -16,6 +16,25 @@ def is_reparse(path: Path) -> bool:
     return stat.S_ISLNK(value.st_mode) or bool(getattr(value, "st_file_attributes", 0) & 0x400)
 
 
+def expand_windows_alias(path: Path) -> Path:
+    """Expand DOS short names without resolving links or junction targets."""
+    if os.name != "nt":
+        return path
+    import ctypes
+    from ctypes import wintypes
+    function = ctypes.WinDLL("kernel32", use_last_error=True).GetLongPathNameW
+    function.argtypes = (wintypes.LPCWSTR, wintypes.LPWSTR, wintypes.DWORD)
+    function.restype = wintypes.DWORD
+    size = function(str(path), None, 0)
+    if not size:
+        raise ctypes.WinError(ctypes.get_last_error())
+    buffer = ctypes.create_unicode_buffer(size)
+    result = function(str(path), buffer, size)
+    if not result or result >= size:
+        raise OSError("Windows path changed while expanding its short name.")
+    return Path(buffer.value)
+
+
 @dataclass(frozen=True)
 class SearchConfig:
     roots: tuple[str, ...]

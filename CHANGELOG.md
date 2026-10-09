@@ -54,3 +54,6 @@ Documentation and visual changes; underlying runtime remained 0.1.0. Original do
 ## 0.1.0 — Portable baseline
 
 Python/SQLite engine with explicit roots, filename/content search, bounded reads, CLI, JSONL and a minimal MCP stdio adapter.
+
+RC4 CI follow-up: normalize Windows DOS short-name aliases before scope checks;
+retain junction and excluded-directory boundaries. Add an explicit native regression.

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "name": "AgentSearch",
   "version": "1.0.0rc4",
-  "created_at_utc": "2026-10-09T15:25:37.491948+00:00",
+  "created_at_utc": "2026-10-09T15:32:31.181390+00:00",
   "validation": "docs/releases/v1.0.0-rc4.md",
   "native_windows_verified": true,
   "authentication": "Unsigned local integrity manifest, not publisher authentication",
@@ -28,8 +28,8 @@
       "sha256": "d5dd9464f009899b2f5ad75b291c9a8607c21916dfa57a26ca19eade9439d9b2"
     },
     "CHANGELOG.md": {
-      "size": 3829,
-      "sha256": "c10f22531c47da27cc91ea8279b8434311594c5b55a6caa6546d2ff503b0d559"
+      "size": 3996,
+      "sha256": "0adbf53e6951538cf90604008fd36c78e85e139b7f5b81c8582407d789c29043"
     },
     "LICENSE": {
       "size": 1075,
@@ -68,12 +68,12 @@
       "sha256": "ee65b52f93c036eec36ceae5b34765bcc28b75cc8af499d1d37e8650b1639d00"
     },
     "agentsearch/config.py": {
-      "size": 3211,
-      "sha256": "2aceb6fd8a0687f842b6f4485470d9185c8cb5e05913d45bb366d01323addf66"
+      "size": 3976,
+      "sha256": "374e659bbd75b8f82fa42f30409520a6e48437f733a7c34bc0ec222c3db60c0b"
     },
     "agentsearch/engine.py": {
-      "size": 39726,
-      "sha256": "c5b5439e9bee071dd1a81909996f6439eb1962630597bc16b0b8008328cec981"
+      "size": 39770,
+      "sha256": "d1ace64a4b388b5c0e4ab1a18346ade72367549e9c7ae5df962ed430f51569eb"
     },
     "agentsearch/evidence.py": {
       "size": 2015,
@@ -180,8 +180,8 @@
       "sha256": "74b73d6f0c901bb3453d6153c2fda3ff56c3a22fce354fb1acda8b1160f89210"
     },
     "docs/releases/v1.0.0-rc4.md": {
-      "size": 3855,
-      "sha256": "e3c406c56b768304a69df90e12c15d4ad32d0674c921dc53aca7243d877ed059"
+      "size": 4088,
+      "sha256": "2e54c2c9c66d6a6e78b788fcec3130b993a9fd5caaf11a940774b6fd3bd8645d"
     },
     "docs/validation/baseline-2000.json": {
       "size": 7673,
@@ -232,8 +232,8 @@
       "sha256": "fe23de502ab904a4afaa541f3a41b476b2c2b1d64b275457bab8ab03522597ab"
     },
     "docs/validation/windows-rc4.json": {
-      "size": 6717,
-      "sha256": "0159a41ef585a19ffcf79d2638e6d4a16cd1f1400a58433804cb9c8b22d10748"
+      "size": 5471,
+      "sha256": "dd914c84a50264ac7d85f99e82ad34093c905701222562c80189083f93689d7b"
     },
     "examples/benchmark.py": {
       "size": 11295,
@@ -332,20 +332,20 @@
       "sha256": "80a340459cb7a8c41f5bd60a7c4c48c3dce9f5b0c8c245f1ccc768177d6ecccb"
     },
     "tests/test_integrity.py": {
-      "size": 4498,
-      "sha256": "17e5a6c102df16d08be71e17b0cb2c814a5cf46dd2ea1f90d569af136917df5e"
+      "size": 4508,
+      "sha256": "048024d6e735ddf8f8d77cc4e28402f4f60574b33b26eb01116368cc37116e94"
     },
     "tests/test_native_regressions.py": {
-      "size": 3324,
-      "sha256": "16b6a01cb40a8f01baf8f2b97cfc4bacaebbaab714fb5e0c9e226c5c56233b6c"
+      "size": 4845,
+      "sha256": "42f250b571e46629e87468ad86d411c8ec0d1bfe37744166faef74b293507168"
     },
     "tests/test_pegasus_skill.py": {
       "size": 2538,
       "sha256": "b6417b9fc891af7d6976b6f6e4e679cd1d35d9d5ff95f589afc1133c1550d428"
     },
     "tests/test_protocol.py": {
-      "size": 11521,
-      "sha256": "6c1f3287950f0c850ec6f51f7ee68c5d5986d78d4462ccedf4860b6bd7ddc54d"
+      "size": 11531,
+      "sha256": "f3fb35f24ce737eaeecb1a20cef5532fb14a7008d71dd75e1b5cb78620263c06"
     },
     "tests/test_reliability.py": {
       "size": 22871,
@@ -369,7 +369,7 @@
     },
     "topology/agent-topology.json": {
       "size": 6892,
-      "sha256": "69c4345258b8e4a7c2abc32cdac8d93742e9cd547cbcc0371166b741171175cf"
+      "sha256": "1af37f06e911fb997f6a8271476870e8a0f87b8bd0c17d1393bc0c8cfb383b8f"
     },
     "topology/architecture.mmd": {
       "size": 239,
