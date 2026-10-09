@@ -180,18 +180,20 @@ class ReliabilityTests(unittest.TestCase):
     def test_atomic_replacement_is_detected_after_descriptor_read(self):
         p = self.write('sample.txt', 'needle\n')
         replacement = self.write('new.txt', 'replacement\n')
-        original = os.fstat
+        expected_body = p.read_bytes().decode('utf-8')
+        original = self.engine._checked_path
         calls = 0
-        def swap(fd):
+        def swap(path):
             nonlocal calls
-            r = original(fd)
             calls += 1
             if calls == 2:
                 os.replace(replacement, p)
-            return r
-        with patch('agentsearch.engine.os.fstat', side_effect=swap):
+            return original(path)
+        # Swap after the descriptor closes: Windows denies replacement while
+        # the CRT handle is open, but the post-close race still needs detection.
+        with patch.object(self.engine, '_checked_path', side_effect=swap):
             body, _, _, changed = self.engine._load_text(p)
-        self.assertEqual(body, 'needle\n')
+        self.assertEqual(body, expected_body)
         self.assertTrue(changed)
 
     def test_bad_surrogate_and_duplicate_json_recover_next_request(self):
@@ -377,6 +379,7 @@ e.index(force=True)
         with sqlite3.connect(other) as db:
             db.execute('CREATE TABLE business_data(value TEXT)')
             db.execute("INSERT INTO business_data VALUES ('keep')")
+        db.close()  # A SQLite context commits; it does not close the connection.
         before = hashlib.sha256(other.read_bytes()).hexdigest()
         with self.assertRaisesRegex(ValueError, 'Not an AgentSearch'):
             SearchEngine(other, SearchConfig((str(self.root),)))

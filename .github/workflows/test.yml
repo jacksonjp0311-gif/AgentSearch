@@ -38,19 +38,19 @@ jobs:
       - name: Windows launcher setup
         if: runner.os == 'Windows'
         shell: powershell
-        run: .\AgentSearch.ps1 -Action Setup
+        run: .\AgentSearch.ps1 -PythonExecutable (Get-Command python).Source -Action Setup
       - name: Windows launcher index
         if: runner.os == 'Windows'
         shell: powershell
-        run: .\AgentSearch.ps1 -Action Index
+        run: .\AgentSearch.ps1 -PythonExecutable (Get-Command python).Source -Action Index
       - name: Windows launcher search
         if: runner.os == 'Windows'
         shell: powershell
-        run: .\AgentSearch.ps1 -Action Search -Query 'checkpoint'
+        run: .\AgentSearch.ps1 -PythonExecutable (Get-Command python).Source -Action Search -Query 'checkpoint'
       - name: Windows launcher status with PowerShell 7
         if: runner.os == 'Windows'
         shell: pwsh
-        run: .\AgentSearch.ps1 -Action Status
+        run: .\AgentSearch.ps1 -PythonExecutable (Get-Command python).Source -Action Status
       - name: Preserve verification receipt
         if: always()
         uses: actions/upload-artifact@v4

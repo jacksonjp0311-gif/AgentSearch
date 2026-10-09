@@ -1,0 +1,10 @@
+include AgentSearch.ps1 MANIFEST.json AGENTS.md CHANGELOG.md THIRD_PARTY.md
+recursive-include docs *.md *.json *.txt
+recursive-include topology *.json *.md *.mmd
+recursive-include skills *.md *.json *.py
+recursive-include scripts *.py *.ps1
+recursive-include assets *.svg *.png *.md
+recursive-include tests *.py
+recursive-include examples *.py *.md *.txt *.json
+prune state
+prune config

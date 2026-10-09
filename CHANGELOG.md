@@ -1,3 +1,13 @@
+## 1.0.0 RC4 — Windows repair and reusable agent skill
+
+- Fixed false changed-file detection caused by Windows pathname/descriptor ctime differences; preserved identity, size, mtime and in-handle change checks.
+- Bounded evidence reads even when files grow after the initial size check.
+- Added explicit PowerShell Python selection, native long-path and junction tests, and portable fault-injection fixtures.
+- Added the fifth JSONL verify operation without changing existing operations.
+- Prepared a scoped, connection-per-call Pegasus/Hermes adapter and reusable skill, schemas and examples; no production installation.
+- Regenerated topology from all modules, strengthened source/hash/import tests and sealed skill/script code.
+- Retained RC status: real model outcomes and hostile race isolation are not established. See docs/releases/v1.0.0-rc4.md.
+
 ## 1.0.0 RC3 — Topology and integration map
 
 - Added machine-readable module graph with logical geometric coordinates and source hashes.
@@ -12,7 +22,15 @@
 - Preserved conservative content-search annotations (fresh indexing writes derived state, never source files).
 - Native Windows acceptance remains pending.
 
-## 1.0.0 RC1 — Agent evidence verification\n\n- Exposed `verify_evidence` through the existing agent adapter/MCP tool contract.\n- Restricted verification to configured roots and made malformed digests explicit failures.\n- Added integration regression test and updated protocol contract assertion.\n- Added release gates and honest RC documentation.\n- Native Windows acceptance still pending.\n\n## v0.3.0 — Verifiable evidence
+## 1.0.0 RC1 — Agent evidence verification
+
+- Exposed `verify_evidence` through the existing agent adapter/MCP tool contract.
+- Restricted verification to configured roots and made malformed digests explicit failures.
+- Added integration regression test and updated protocol contract assertion.
+- Added release gates and honest RC documentation.
+- Native Windows acceptance still pending.
+
+## v0.3.0 — Verifiable evidence
 
 - Added content-addressed evidence receipt and verification helper.
 - Added dedicated regression tests.

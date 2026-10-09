@@ -22,6 +22,7 @@ from typing import Any
 
 from .config import SearchConfig, is_reparse
 from ._version import VERSION
+from .file_identity import identity
 
 SCHEMA_VERSION = "1"
 MAX_MATCH_TEXT_CHARS = 32000
@@ -294,7 +295,7 @@ class SearchEngine:
         changed = (before.st_size, before.st_mtime_ns, before.st_ctime_ns) != (after.st_size, after.st_mtime_ns, after.st_ctime_ns)
         try:
             final = self._checked_path(path).stat()
-            changed = changed or (after.st_dev, after.st_ino, after.st_size, after.st_mtime_ns, after.st_ctime_ns) != (final.st_dev, final.st_ino, final.st_size, final.st_mtime_ns, final.st_ctime_ns)
+            changed = changed or identity(after) != identity(final)
         except (OSError, ValueError):
             changed = True
         return text, status, hashlib.sha256(raw).hexdigest(), changed

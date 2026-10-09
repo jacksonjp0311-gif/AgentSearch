@@ -48,8 +48,9 @@ def verify_manifest(root: Path = ROOT) -> dict:
             if len(raw) != expected['size'] or hashlib.sha256(raw).hexdigest() != expected['sha256']:
                 failures.append('Hash/size mismatch: '+relative)
         # Refuse unexpected executable code, while permitting generated state.
-        for folder in ('agentsearch', 'tests', 'examples'):
-            for candidate in (root/folder).rglob('*.py'):
+        for folder in ('agentsearch', 'tests', 'examples', 'scripts', 'skills'):
+            for candidate in (root/folder).rglob('*'):
+                if candidate.suffix not in ('.py','.ps1'):continue
                 if candidate.relative_to(root).as_posix() not in entries:
                     failures.append('Unlisted Python source: '+candidate.relative_to(root).as_posix())
         return {'ok': not failures, 'checked_files': len(entries), 'failures': failures,

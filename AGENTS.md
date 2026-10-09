@@ -1,6 +1,6 @@
 # AgentSearch — operating rules for agents
 
-AgentSearch 0.2.0 is a retrieval tool, not an autonomous actor. Preserve the four existing tools and never register source-file write or shell-execution operations as part of this adapter.
+AgentSearch 1.0.0rc4 is a retrieval tool, not an autonomous actor. Preserve all five tools and never register source-file write or shell-execution operations as part of this adapter.
 
 1. Read index_status before interpreting search results. Use only explicitly allowed roots.
 2. Use file_search for candidate names, content_search for literal evidence, and read_file for bounded context. All paths used as scopes/reads must be absolute.
@@ -13,7 +13,7 @@ AgentSearch 0.2.0 is a retrieval tool, not an autonomous actor. Preserve the fou
 
 ## Validation state
 
-Linux/Python 3.13.5 was exercised. Native Windows, NTFS, PowerShell, macOS and other Python versions remain acceptance gates. The repository contains prepared CI, not evidence that remote jobs ran. Review docs/validation and docs/ENGINEERING_REVIEW.md before making claims.
+Historical Linux results are retained. Current Windows evidence and remaining gates are in docs/releases/v1.0.0-rc4.md. Inspect current-head CI before claiming cross-platform success. Regenerate topology/schemas with scripts/generate_topology.py, then seal with scripts/seal_release.py. Pre-seal receipts are not sealed-release verification. Keep state and credentials untracked.
 
 ## Never add claims without evidence
 

@@ -1,7 +1,7 @@
 #requires -Version 5.1
 <#
 .SYNOPSIS
-Single Windows entry point for AgentSearch 1.0.0 RC3.
+Single Windows entry point for AgentSearch 1.0.0 RC4.
 .DESCRIPTION
 Runs the source package with Python 3.11 or newer. Setup records the package
 anchor and explicitly configured search roots. Watch runs in the foreground.
@@ -15,6 +15,7 @@ The script always returns to its own package root and emits no protocol banners.
 param(
     [ValidateSet('Setup', 'Index', 'Search', 'Grep', 'Read', 'Status', 'Stdio', 'Mcp', 'Watch', 'Test', 'Verify', 'Check')]
     [string]$Action = 'Status',
+    [string]$PythonExecutable = $env:AGENTSEARCH_PYTHON,
 
     [string[]]$Root = @(),
     [string]$Query = '',
@@ -77,9 +78,14 @@ try {
     $PythonProgram = $null
     $PythonPrefix = @()
     $VersionProbe = 'import sys; sys.exit(int(sys.version_info < (3, 11)))'
+    if (-not [string]::IsNullOrWhiteSpace($PythonExecutable)) {
+        & $PythonExecutable '-c' $VersionProbe
+        if ($LASTEXITCODE -ne 0) { throw 'Selected Python must be version 3.11 or newer.' }
+        $PythonProgram = $PythonExecutable
+    }
     $Launcher = Get-Command 'py' -CommandType Application -ErrorAction SilentlyContinue | Select-Object -First 1
 
-    if ($null -ne $Launcher) {
+    if (($null -eq $PythonProgram) -and ($null -ne $Launcher)) {
         $ProbeOk = $false
         try {
             & $Launcher.Source '-3' '-c' $VersionProbe 2>$null

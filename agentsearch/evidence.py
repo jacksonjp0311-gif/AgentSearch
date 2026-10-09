@@ -2,11 +2,15 @@
 import hashlib
 import os
 from pathlib import Path
+from .file_identity import identity
+from .config import is_reparse
 
 
 def receipt(path, max_bytes=8_388_608):
     target = Path(path)
-    if target.is_symlink():
+    if type(max_bytes) is not int or max_bytes < 1:
+        raise ValueError('max_bytes must be a positive integer')
+    if is_reparse(target):
         raise ValueError('symlink evidence is unsupported')
     before = target.stat()
     if not target.is_file() or before.st_size > max_bytes:
@@ -16,12 +20,16 @@ def receipt(path, max_bytes=8_388_608):
         opened = os.fstat(handle.fileno())
         if (opened.st_dev, opened.st_ino) != (before.st_dev, before.st_ino):
             raise RuntimeError('file replaced during open')
-        while chunk := handle.read(65536):
+        total = 0
+        while chunk := handle.read(min(65536, max_bytes - total + 1)):
+            total += len(chunk)
+            if total > max_bytes:
+                raise ValueError('evidence grew beyond the size limit')
             digest.update(chunk)
         closed = os.fstat(handle.fileno())
     after = target.stat()
-    keys = ('st_dev', 'st_ino', 'st_size', 'st_mtime_ns', 'st_ctime_ns')
-    if any(getattr(before, k) != getattr(after, k) or getattr(closed, k) != getattr(after, k) for k in keys):
+    if (is_reparse(target) or identity(before) != identity(after) or identity(closed) != identity(after)
+            or any(getattr(opened, k) != getattr(closed, k) for k in ('st_size', 'st_mtime_ns', 'st_ctime_ns'))):
         raise RuntimeError('file changed during capture')
     return {'path': str(target.resolve()), 'sha256': digest.hexdigest(), 'bytes': after.st_size, 'algorithm': 'sha256'}
 

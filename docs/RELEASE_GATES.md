@@ -1,5 +1,13 @@
 # Release gates — 1.0.0 RC1
 
+## RC4 update
+
+Native Windows launchers, 10,000 requests/32 logical clients, extended paths,
+junction exclusion and the real Hermes registration interface have now been
+exercised. See [RC4 evidence and exact limitations](releases/v1.0.0-rc4.md).
+Keep RC status until real agent outcomes, broader security review and the target
+deployment's filesystem acceptance are demonstrated. Historical gates follow.
+
 ## Completed here
 - Portable unit/integration suite: 79 collected, 75 passed, 4 platform skips.
 - MCP tool-list contract updated for `verify_evidence`.

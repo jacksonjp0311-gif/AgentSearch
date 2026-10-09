@@ -1,5 +1,15 @@
 # Provenance and third-party notes
 
+## RC4 provenance review
+
+The canonical source is the supplied RC3 archive (SHA-256 recorded in the RC4
+release notes), preserved in the initial Git commit. Its MIT license identifies
+James Paul Jackson. No third-party source was added during this repair. Runtime
+dependencies remain standard-library only. The FSearch inspiration's upstream
+MIT notice was checked on 2026-10-09 at the authoritative link below. This source
+review cannot independently establish the ownership of the supplied artwork;
+the original user-supplied assets and their historical labeling are preserved.
+
 ## AgentSearch 0.1.0
 
 AgentSearch is an independent implementation created for James Paul Jackson. Its source code and documentation are provided under the [MIT license](LICENSE). The working name is local to this package; this delivery does not establish a published package name or trademark clearance.

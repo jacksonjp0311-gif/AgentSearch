@@ -32,6 +32,12 @@ class ReleaseVerificationTests(unittest.TestCase):
     def test_extra_python_source_is_detected(self):
         (self.root/'agentsearch'/'unexpected.py').write_text('pass\n')
         self.assertFalse(verify_manifest(self.root)['ok'])
+    def test_unlisted_skill_and_script_are_detected(self):
+        for relative in ('skills/agentsearch/unexpected.py','scripts/unexpected.ps1'):
+            path=self.root/relative;path.parent.mkdir(parents=True,exist_ok=True)
+            path.write_text('unlisted executable')
+            self.assertFalse(verify_manifest(self.root)['ok'])
+            path.unlink()
     def test_invalid_manifest_is_an_explicit_failure(self):
         self.manifest['files'] = []; self.save()
         self.assertFalse(verify_manifest(self.root)['ok'])

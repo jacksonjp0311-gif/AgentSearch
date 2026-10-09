@@ -1,4 +1,4 @@
-# Agent integration — stable four-tool API
+# Agent integration — five-tool API
 
 ## Python registration
 
@@ -23,6 +23,7 @@ Use one engine per thread. The adapter does not make model-provider calls. Frame
 | file_search | query | limit, scope, ext, budget_ms |
 | content_search | pattern | limit, scope, ext, budget_ms, per_file, case_sensitive, fresh |
 | read_file | path | start_line, max_lines, max_chars |
+| verify_evidence | path, sha256 | none |
 | index_status | none | none |
 
 Unknown fields and coercions are rejected. Booleans are not accepted as integers. Null/blank/NUL or unpaired-surrogate inputs are not valid replacements for real paths or patterns. Read and scope paths must be absolute and within configured roots.
@@ -41,7 +42,7 @@ python -m agentsearch --config config/search.json --db state/index.sqlite3 stdio
 {"id":3,"op":"status"}
 ```
 
-JSONL requests use `search`, `grep`, `read`, `status`; adapter tool names are the four names above. Requests are one object per line, bounded at 65,536 characters. Oversized input is drained to the next newline. Duplicate object keys and non-JSON numeric values are rejected. Diagnostics go to stderr; stdout is JSON only. A failed request does not poison later requests.
+JSONL requests use `search`, `grep`, `read`, `verify`, `status`; adapter tool names are the five names above. Requests are one object per line, bounded at 65,536 characters. Oversized input is drained to the next newline. Duplicate object keys and non-JSON numeric values are rejected. Diagnostics go to stderr; stdout is JSON only. A failed request does not poison later requests.
 
 ## MCP stdio
 

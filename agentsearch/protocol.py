@@ -29,6 +29,7 @@ from ._version import VERSION as SERVER_VERSION
 _OPS = {
     "search": "file_search", "grep": "content_search", "read": "read_file",
     "status": "index_status",
+    "verify": "verify_evidence",
 }
 
 
@@ -94,7 +95,7 @@ def handle_json_request(adapter: AgentSearchAdapter, request: object) -> dict:
             raise ToolArgumentError("id must be a string, integer, or null.")
         operation = request.get("op")
         if not isinstance(operation, str) or operation not in _OPS:
-            raise ToolArgumentError("op must be search, grep, read, or status.")
+            raise ToolArgumentError("op must be search, grep, read, verify, or status.")
         arguments = {key: value for key, value in request.items() if key not in {"id", "op"}}
         result = adapter.dispatch(_OPS[operation], arguments)
     except ToolArgumentError as exc:

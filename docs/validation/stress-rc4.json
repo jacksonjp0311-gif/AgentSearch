@@ -1,0 +1,56 @@
+{
+  "ok": true,
+  "version": "1.0.0rc4",
+  "requests": 10000,
+  "clients": 32,
+  "client_type": "threads, independent SQLite connections; not MCP process load",
+  "elapsed_seconds": 55.509,
+  "latency_ms": {
+    "p50": 168.652,
+    "p95": 280.659,
+    "p99": 323.529
+  },
+  "python_traced_peak_bytes": 17586878,
+  "index_bytes": 159744,
+  "source_sha256": {
+    "agentsearch/__init__.py": "e673f00ac6f4d3e4a56d899a2b814a26472b945cc17ea78c3c4487a709046ac7",
+    "agentsearch/__main__.py": "9012b3cbb7b54b6d8964c422551f943e63d01dddadb340a46c088fdc988bb3a7",
+    "agentsearch/_version.py": "93e46a6ead2642c8df04d4615698ff30e58f876a11e7a69bfd8a8d3b2bcabc8c",
+    "agentsearch/adapter.py": "92c7b793f758f28b9cdad9cca0f3dc442c3563a6ee9fc1895b6ce078be864b73",
+    "agentsearch/cli.py": "ee65b52f93c036eec36ceae5b34765bcc28b75cc8af499d1d37e8650b1639d00",
+    "agentsearch/config.py": "2aceb6fd8a0687f842b6f4485470d9185c8cb5e05913d45bb366d01323addf66",
+    "agentsearch/engine.py": "c5b5439e9bee071dd1a81909996f6439eb1962630597bc16b0b8008328cec981",
+    "agentsearch/evidence.py": "02e5fe7e767e63904b6796ccc9b009f6a695d94f80a2c09e9b4a02d166271e35",
+    "agentsearch/file_identity.py": "9c77a24f3e95840672d5fed3a6bd922dbd057858b9bde2927e6987ae04329bb7",
+    "agentsearch/pegasus.py": "0afc0f609c1fda3718ea7e860e8c0784f43f90ff0819da396a44009bc58b3026",
+    "agentsearch/protocol.py": "176bc429bddfc1bfaaddd8ad97ec824c13f79c7d0eeae9a26a7d37510e38bf91",
+    "agentsearch/verify.py": "922d58804daa61e8bf625e9fb156b80f3cba0d0b96b681858fbd5e47f3f77707",
+    "tests/test_engine.py": "d332cbdeaa790aac15a875764015c4747d1c7eb2bba6df74fd05ca2bfade1fb7",
+    "tests/test_evidence.py": "05d8eff5e06375947739f8c4fc3bff7516e179ba46391ba0e644f3a619aea5ec",
+    "tests/test_evidence_tool.py": "98ea49be37a419fe77411472211769d646c05904456536d092630b239113ce5f",
+    "tests/test_integrity.py": "17e5a6c102df16d08be71e17b0cb2c814a5cf46dd2ea1f90d569af136917df5e",
+    "tests/test_native_regressions.py": "814ea4769254dbc21131abc5583ceeb94cd73f2253ae02748b1e4b805365b10f",
+    "tests/test_pegasus_skill.py": "b6417b9fc891af7d6976b6f6e4e679cd1d35d9d5ff95f589afc1133c1550d428",
+    "tests/test_protocol.py": "6c1f3287950f0c850ec6f51f7ee68c5d5986d78d4462ccedf4860b6bd7ddc54d",
+    "tests/test_reliability.py": "c617636b742098840f77856b2071f86784fd2d7489bd0691e5b6f2fea9eb207d",
+    "tests/test_topology.py": "985db9b04484ce5a3eb2286de022153d2dfae073b454b9f28abe09e1dbca0df0",
+    "tests/test_verification.py": "cb5a057fafbc16c2782dc1bd62a77b1c7bdf19a96d9b351cd26f8b2a72c24f3a",
+    "tests/test_windows_paths.py": "f5170efef92bc71e49bacaf482ace0515985b969ba3efc990d83c7881dddb354",
+    "examples/benchmark.py": "778393111201b4a3f9f8c2f07b8da2f57da2755a6a20b11fa66984c65bfb7f51",
+    "examples/build_demo.py": "4c21040c01e5972bec0cda5fe2110fe1ad94e4d4e86a8f9d68a6fceff5159ece",
+    "examples/harness_demo.py": "ef1a1634ab405f7f2a2509d038b65c93a33cc85e848050408ac50ae6dd22913d",
+    "examples/reliability_soak.py": "cc78ffcf97d95238adfce6f55d1ff63efc00900861ddf0585972fedf601d950e",
+    "examples/stress.py": "602936ff721a3882d974ff91a2f10e9b87f1414b4372b56169e50915286dee5b",
+    "AgentSearch.ps1": "5771ec1c4dd14746648620110036a2ed837dcd54c149d56e8d6b08f6109b050c",
+    "pyproject.toml": "8ebf4e7aed82169ca36ec3e1f20c7101c77f223e7cadb801feef007e8b205042"
+  },
+  "environment": {
+    "os": "Windows",
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "limitations": [
+    "Synthetic 64-file corpus, warm index, no concurrent source mutation.",
+    "Python traced memory is not process RSS; tracing adds overhead. Separate suite tests concurrent writers and killed transactions."
+  ]
+}

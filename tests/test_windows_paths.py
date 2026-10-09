@@ -71,9 +71,10 @@ class NativeWindowsLauncherTests(unittest.TestCase):
                        ('Search', ['-Query', 'checkpoint']), ('Grep', ['-Query', 'launcher_payload']),
                        ('Check', []), ('Index', ['-Force']), ('Status', [])]
             for action, extra in actions:
+                import sys
                 result = subprocess.run([executable, '-NoLogo', '-NoProfile', '-NonInteractive',
                                          '-ExecutionPolicy', 'Bypass', '-File', str(destination/'AgentSearch.ps1'),
-                                         '-Action', action, *extra], capture_output=True, text=True, encoding='utf-8', timeout=30)
+                                         '-PythonExecutable', sys.executable, '-Action', action, *extra], capture_output=True, text=True, encoding='utf-8', timeout=30)
                 self.assertEqual(result.returncode, 0, result.stderr)
                 payload = json.loads(result.stdout.strip())
                 self.assertTrue(payload['ok'])

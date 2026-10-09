@@ -4,6 +4,14 @@
   "coordinate_system": "logical grid, not measured physical distance",
   "nodes": [
     {
+      "id": "agentsearch.__init__",
+      "kind": "module",
+      "path": "agentsearch/__init__.py",
+      "x": 0,
+      "y": 4,
+      "sha256": "e673f00ac6f4d3e4a56d899a2b814a26472b945cc17ea78c3c4487a709046ac7"
+    },
+    {
       "id": "agentsearch.__main__",
       "kind": "module",
       "path": "agentsearch/__main__.py",
@@ -17,7 +25,7 @@
       "path": "agentsearch/_version.py",
       "x": 4,
       "y": 2,
-      "sha256": "c1436e7a844e95f73d488bfb4691c3d4da66ce3df1f903d950d519117d9ccdcc"
+      "sha256": "93e46a6ead2642c8df04d4615698ff30e58f876a11e7a69bfd8a8d3b2bcabc8c"
     },
     {
       "id": "agentsearch.adapter",
@@ -49,7 +57,7 @@
       "path": "agentsearch/engine.py",
       "x": 6,
       "y": 0,
-      "sha256": "e17570e3a6c62f8294fa6d7b3eebbdbe22b574fada89ca7003551bd641811717"
+      "sha256": "c5b5439e9bee071dd1a81909996f6439eb1962630597bc16b0b8008328cec981"
     },
     {
       "id": "agentsearch.evidence",
@@ -57,7 +65,23 @@
       "path": "agentsearch/evidence.py",
       "x": 8,
       "y": -1,
-      "sha256": "e655a3fbf488618c4bee2f8e9ae4dd9f5f24096a9c17fa047697174f0475d821"
+      "sha256": "02e5fe7e767e63904b6796ccc9b009f6a695d94f80a2c09e9b4a02d166271e35"
+    },
+    {
+      "id": "agentsearch.file_identity",
+      "kind": "module",
+      "path": "agentsearch/file_identity.py",
+      "x": 16,
+      "y": 4,
+      "sha256": "3e136c15ef9f8fde54875409dadacc0ea6c92fa8000fc976a223daa4c4d8af79"
+    },
+    {
+      "id": "agentsearch.pegasus",
+      "kind": "module",
+      "path": "agentsearch/pegasus.py",
+      "x": 18,
+      "y": 4,
+      "sha256": "0afc0f609c1fda3718ea7e860e8c0784f43f90ff0819da396a44009bc58b3026"
     },
     {
       "id": "agentsearch.protocol",
@@ -65,7 +89,7 @@
       "path": "agentsearch/protocol.py",
       "x": 2,
       "y": 0,
-      "sha256": "176bc429bddfc1bfaaddd8ad97ec824c13f79c7d0eeae9a26a7d37510e38bf91"
+      "sha256": "d56b6962c1413ef8acd610c4028d5ae32cf633bb9674ace3dd53521b872cb8cf"
     },
     {
       "id": "agentsearch.verify",
@@ -73,14 +97,7 @@
       "path": "agentsearch/verify.py",
       "x": 0,
       "y": 2,
-      "sha256": "eb42a33d26be80e794ca2c41651d8ca1e8693e52205c3e7fc2966806ca8535db"
-    },
-    {
-      "id": "interface.python",
-      "kind": "interface",
-      "x": -4,
-      "y": 0,
-      "path": null
+      "sha256": "922d58804daa61e8bf625e9fb156b80f3cba0d0b96b681858fbd5e47f3f77707"
     },
     {
       "id": "interface.jsonl",
@@ -102,32 +119,30 @@
       "x": -4,
       "y": 6,
       "path": null
+    },
+    {
+      "id": "interface.python",
+      "kind": "interface",
+      "x": -4,
+      "y": 0,
+      "path": null
     }
   ],
   "edges": [
     {
-      "from": "interface.python",
-      "to": "agentsearch.adapter",
-      "kind": "calls",
-      "protocol": "python"
+      "from": "agentsearch.__init__",
+      "to": "agentsearch._version",
+      "kind": "imports"
     },
     {
-      "from": "interface.jsonl",
-      "to": "agentsearch.protocol",
-      "kind": "calls",
-      "protocol": "jsonl"
+      "from": "agentsearch.__init__",
+      "to": "agentsearch.config",
+      "kind": "imports"
     },
     {
-      "from": "interface.mcp",
-      "to": "agentsearch.protocol",
-      "kind": "calls",
-      "protocol": "mcp"
-    },
-    {
-      "from": "interface.powershell",
-      "to": "agentsearch.cli",
-      "kind": "calls",
-      "protocol": "powershell"
+      "from": "agentsearch.__init__",
+      "to": "agentsearch.engine",
+      "kind": "imports"
     },
     {
       "from": "agentsearch.__main__",
@@ -175,6 +190,31 @@
       "kind": "imports"
     },
     {
+      "from": "agentsearch.engine",
+      "to": "agentsearch.file_identity",
+      "kind": "imports"
+    },
+    {
+      "from": "agentsearch.evidence",
+      "to": "agentsearch.config",
+      "kind": "imports"
+    },
+    {
+      "from": "agentsearch.evidence",
+      "to": "agentsearch.file_identity",
+      "kind": "imports"
+    },
+    {
+      "from": "agentsearch.pegasus",
+      "to": "agentsearch.adapter",
+      "kind": "imports"
+    },
+    {
+      "from": "agentsearch.pegasus",
+      "to": "agentsearch.engine",
+      "kind": "imports"
+    },
+    {
       "from": "agentsearch.protocol",
       "to": "agentsearch._version",
       "kind": "imports"
@@ -193,6 +233,30 @@
       "from": "agentsearch.verify",
       "to": "agentsearch._version",
       "kind": "imports"
+    },
+    {
+      "from": "interface.jsonl",
+      "to": "agentsearch.protocol",
+      "kind": "calls",
+      "protocol": "jsonl"
+    },
+    {
+      "from": "interface.mcp",
+      "to": "agentsearch.protocol",
+      "kind": "calls",
+      "protocol": "mcp"
+    },
+    {
+      "from": "interface.powershell",
+      "to": "agentsearch.cli",
+      "kind": "calls",
+      "protocol": "powershell"
+    },
+    {
+      "from": "interface.python",
+      "to": "agentsearch.adapter",
+      "kind": "calls",
+      "protocol": "python"
     }
   ],
   "constraints": {
@@ -215,6 +279,7 @@
       "read_file",
       "verify_evidence",
       "index_status"
-    ]
+    ],
+    "pegasus_adapter": "agentsearch/pegasus.py; explicit host registration only"
   }
 }

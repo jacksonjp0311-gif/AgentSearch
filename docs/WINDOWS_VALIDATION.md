@@ -1,5 +1,9 @@
 # Native Windows acceptance gate
 
+**RC4 update:** Native Windows, PowerShell 5.1/7, junction and extended-path
+acceptance were executed on the target computer. See [current RC4 evidence](releases/v1.0.0-rc4.md).
+The text below records the earlier Linux delivery's outstanding checks.
+
 **Not executed on the Linux build host.** Four native-platform tests are included: Windows path handling, parent traversal, Windows PowerShell 5.1 launch, and PowerShell 7 launch. They are skipped on non-Windows systems; a missing PowerShell executable is separately reported as a skip on Windows.
 
 ## Run on the target computer

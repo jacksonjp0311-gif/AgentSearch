@@ -1,18 +1,32 @@
 ![AgentSearch — persistent local retrieval](assets/banner.svg)
 
-![AgentSearch architecture and capabilities](assets/agentsearch-overview.png)
+<details>
+<summary>Original AgentSearch concept graphic (historical)</summary>
+
+![AgentSearch original concept graphic](assets/agentsearch-overview.png)
+
+Preserved artwork: its API examples, filters, benchmark figures and platform badges
+are historical concepts. Use the current commands and validation evidence below.
+</details>
 
 # AgentSearch
 
 ### Find files. Return evidence. Fail visibly.
 
-**v1.0.0 RC3 · Local Python tool · SQLite FTS5 · Five agent tools · MIT**
+**v1.0.0 RC4 · Local Python tool · SQLite FTS5 · Five agent tools · MIT**
+
+[![Windows and Linux CI](https://github.com/jacksonjp0311-gif/AgentSearch/actions/workflows/test.yml/badge.svg)](https://github.com/jacksonjp0311-gif/AgentSearch/actions/workflows/test.yml)
+
+**RC4 fixes native Windows evidence reads, bounds growing-file capture, supports
+explicit Python selection and prepares a reusable agent skill.** See
+[release evidence](docs/releases/v1.0.0-rc4.md) and the
+[opt-in Pegasus plan](docs/PEGASUS_INTEGRATION.md). No host is auto-installed.
 
 [Quick start](#quick-start) · [Tool contract](#five-tools-one-contract) · [Reliability](#tested-not-assumed) · [Performance](#measured-performance) · [Operations](#operate-it) · [Security](#trust-boundaries)
 
 AgentSearch is a small, persistent file-and-text retrieval tool for local AI harnesses. Give it explicit folders. It builds an index, finds candidate files, verifies returned evidence against current bytes, and tells the caller when a result is incomplete.
 
-**No model, embeddings, subscription, remote service, runtime package dependencies, or source-code editing.** Python 3.11+ with SQLite FTS5 trigram support is required. The delivered run was executed on **Linux / Python 3.13.5 / SQLite 3.46.1**. Native Windows and PowerShell validation is **pending**, with dedicated tests included.
+**No model, embeddings, subscription, remote service, runtime package dependencies, or source-code editing.** Python 3.11+ with SQLite FTS5 trigram support is required. RC4 was exercised on Windows, including PowerShell 5.1 and 7, junction exclusion and extended-length paths. Historical Linux measurements remain labeled by their original environment; current cross-platform results are linked in CI.
 
 > Reliability is the feature. Search should not invent certainty, hide a failed scan, or change the source files it reads.
 
@@ -43,7 +57,7 @@ The fifth agent tool, `verify_evidence`, validates an expected SHA-256 against a
 {"name":"verify_evidence","arguments":{"path":"C:\\\\Projects\\\\demo.py","sha256":"<64 hex characters>"}}
 ```
 
-**Release status: RC3, not production-certified.** The portable suite passes, but Windows-native validation, adversarial audits, and high-volume load gates are still outstanding. Do not treat the version number as proof those gates passed.
+**Release status: RC4, not production-certified.** Windows tests and a 10,000-request/32-client synthetic test are recorded in release notes. Real model task gains, hostile filesystem isolation, power-loss durability and network filesystem behavior are not established.
 
 ## v0.3.0 — Verifiable evidence
 
@@ -75,7 +89,7 @@ The API remains deliberately small. There is no new autonomous layer, learning l
 
 ## Quick start
 
-Extract the ZIP. Keep the entire **AgentSearch** folder together. Open PowerShell inside it.
+Clone [AgentSearch](https://github.com/jacksonjp0311-gif/AgentSearch) or extract the source release. Keep the entire folder together. If Python is not on PATH, pass `-PythonExecutable C:/path/to/python.exe` or set `AGENTSEARCH_PYTHON`.
 
 ```powershell
 # Verify the release manifest and run the isolated test suite five times.
@@ -83,7 +97,7 @@ Extract the ZIP. Keep the entire **AgentSearch** folder together. Open PowerShel
 .\AgentSearch.ps1 -Action Verify -Repeat 5
 
 # Authorize one project folder, then build its index.
-.\AgentSearch.ps1 -Action Setup -Root 'C:\Users\jacks\PEGASUS'
+.\AgentSearch.ps1 -Action Setup -Root 'C:\Projects\YourProject'
 .\AgentSearch.ps1 -Action Index
 
 # Verify the actual index, not just the software tests.
@@ -280,3 +294,21 @@ AgentSearch/
 ```
 
 The next gate is native Windows acceptance, not another layer of features. Faster native indexing can be considered after real workload measurements justify it.
+
+## Agent dataflow
+
+```mermaid
+flowchart LR
+  H[Agent harness] --> A[Adapter / MCP / JSONL]
+  A --> E[Search engine]
+  E --> DB[(SQLite index)]
+  E --> FS[(Approved local roots)]
+  A --> V[Evidence verifier]
+  V --> FS
+  FS --> R[Bounded evidence + freshness]
+  R --> H
+```
+
+[Machine-readable topology](topology/agent-topology.json) · [Reusable skill](skills/agentsearch/SKILL.md) · [Pegasus integration](docs/PEGASUS_INTEGRATION.md)
+
+Coordinates are logical layout hints; they do not claim geometric optimization.
