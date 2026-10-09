@@ -1,0 +1,106 @@
+{
+  "ok": false,
+  "version": "0.2.0",
+  "measured_at_utc": "2026-10-09T00:54:19.454780+00:00",
+  "environment": {
+    "os": "Linux",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "python": "3.13.5",
+    "sqlite": "3.46.1"
+  },
+  "manifest": {
+    "ok": false,
+    "checked_files": 34,
+    "failures": [
+      "Manifest version differs from runtime version.",
+      "Hash/size mismatch: AgentSearch.ps1",
+      "Hash/size mismatch: CHANGELOG.md",
+      "Hash/size mismatch: README.md",
+      "Hash/size mismatch: agentsearch/__init__.py",
+      "Hash/size mismatch: agentsearch/adapter.py",
+      "Hash/size mismatch: agentsearch/cli.py",
+      "Hash/size mismatch: agentsearch/engine.py",
+      "Hash/size mismatch: agentsearch/protocol.py",
+      "Missing or invalid path: examples/demo/docs/caf\u00e9_\u96ea.txt",
+      "Hash/size mismatch: pyproject.toml",
+      "Hash/size mismatch: tests/test_windows_paths.py",
+      "Unlisted Python source: agentsearch/_version.py",
+      "Unlisted Python source: agentsearch/verify.py",
+      "Unlisted Python source: tests/test_verification.py",
+      "Unlisted Python source: tests/test_reliability.py",
+      "Unlisted Python source: examples/reliability_soak.py"
+    ],
+    "manifest_sha256": "109722bfa5d921fb4f0d1ada671c1f3723b8a2501bfc64f62f55b217f451d9e1",
+    "authentication": "Local integrity check; not a cryptographic publisher signature."
+  },
+  "unsealed_developer_run": true,
+  "native_windows_run": false,
+  "source_unchanged_during_tests": true,
+  "source_sha256": {
+    "agentsearch/__init__.py": "e673f00ac6f4d3e4a56d899a2b814a26472b945cc17ea78c3c4487a709046ac7",
+    "agentsearch/__main__.py": "9012b3cbb7b54b6d8964c422551f943e63d01dddadb340a46c088fdc988bb3a7",
+    "agentsearch/_version.py": "3ca62729700c56751ebcbca100ede622d23eda7fd8f48e1ed080e9baaf1f559e",
+    "agentsearch/adapter.py": "11328597acb365a8160ec74a7c0ac19a7cc5bb0e78fcb5acb819c5abb2c7e503",
+    "agentsearch/cli.py": "ee65b52f93c036eec36ceae5b34765bcc28b75cc8af499d1d37e8650b1639d00",
+    "agentsearch/config.py": "2aceb6fd8a0687f842b6f4485470d9185c8cb5e05913d45bb366d01323addf66",
+    "agentsearch/engine.py": "f08c92b8485e068a0b0009e8f70fcdc7be23f009b960e271d45303ec46cf8d00",
+    "agentsearch/protocol.py": "176bc429bddfc1bfaaddd8ad97ec824c13f79c7d0eeae9a26a7d37510e38bf91",
+    "agentsearch/verify.py": "c2b2e6af7afbbfc82e5ea794d0dd3683e58f276caa8578330dfc1a75e6b21ed6",
+    "tests/test_engine.py": "d332cbdeaa790aac15a875764015c4747d1c7eb2bba6df74fd05ca2bfade1fb7",
+    "tests/test_integrity.py": "17e5a6c102df16d08be71e17b0cb2c814a5cf46dd2ea1f90d569af136917df5e",
+    "tests/test_protocol.py": "636f108e0989f493b1404222c6e459b50f26d0bd72071ebddfcb33b78934cd11",
+    "tests/test_reliability.py": "2cda53333f335ed76cadf387201fde3e71f872c83fcf26f98332f33a258faaab",
+    "tests/test_verification.py": "cb5a057fafbc16c2782dc1bd62a77b1c7bdf19a96d9b351cd26f8b2a72c24f3a",
+    "tests/test_windows_paths.py": "5b170b038829efbd73c2754a83e218f33b3c6cfccb5d95280dc4a9adc4943921",
+    "AgentSearch.ps1": "07ba1472745d50250984f7242a4ed9c2010db22584d2fefe9826cce5a9e3bb70",
+    "pyproject.toml": "5773ecef7eb28bb50e3560f8cb60c50b91334d8ad94bdd6957284211e5587437"
+  },
+  "requested_repeats": 5,
+  "runs": [
+    {
+      "run": 1,
+      "collected": 74,
+      "passed": 69,
+      "skipped": [
+        {
+          "test": "test_windows_paths.NativeWindowsLauncherTests.test_windows_powershell_51_launcher",
+          "reason": "Requires native Windows and PowerShell"
+        },
+        {
+          "test": "test_windows_paths.NativeWindowsLauncherTests.test_windows_powershell_7_launcher",
+          "reason": "Requires native Windows and PowerShell"
+        },
+        {
+          "test": "test_windows_paths.NativeWindowsPathTests.test_drive_path_with_spaces_unicode_and_both_separators",
+          "reason": "Requires a native Windows filesystem"
+        },
+        {
+          "test": "test_windows_paths.NativeWindowsPathTests.test_parent_traversal_cannot_leave_configured_root",
+          "reason": "Requires a native Windows filesystem"
+        }
+      ],
+      "failures": [],
+      "errors": [
+        {
+          "test": "test_reliability.LongSessionAndStartupTests.test_concurrent_first_open_is_safe",
+          "traceback": "Traceback (most recent call last):\n  File \"/mnt/data/AgentSearch-0.2.0/tests/test_reliability.py\", line 449, in test_concurrent_first_open_is_safe\n    self.assertEqual([job.result(timeout=15) for job in jobs], [0]*4)\n                      ~~~~~~~~~~^^^^^^^^^^^^\n  File \"/usr/lib/python3.13/concurrent/futures/_base.py\", line 449, in result\n    return self.__get_result()\n           ~~~~~~~~~~~~~~~~~^^\n  File \"/usr/lib/python3.13/concurrent/futures/_base.py\", line 401, in __get_result\n    raise self._exception\n  File \"/usr/lib/python3.13/concurrent/futures/thread.py\", line 59, in run\n    result = self.fn(*self.args, **self.kwargs)\n  File \"/mnt/data/AgentSearch-0.2.0/tests/test_reliability.py\", line 445, in open_one\n    with SearchEngine(db, config) as engine:\n         ~~~~~~~~~~~~^^^^^^^^^^^^\n  File \"/mnt/data/AgentSearch-0.2.0/agentsearch/engine.py\", line 159, in __init__\n    self.conn.execute(\"PRAGMA journal_mode=WAL\")\n    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^\nsqlite3.OperationalError: database is locked\n"
+        }
+      ],
+      "expected_failures": 0,
+      "unexpected_successes": 0,
+      "ok": false,
+      "elapsed_seconds": 6.912
+    }
+  ],
+  "totals": {
+    "collected": 74,
+    "passed": 69,
+    "skipped": 4
+  },
+  "elapsed_seconds": 6.917,
+  "limitations": [
+    "Repeated tests are not a proof of zero defects.",
+    "Only the recorded operating system/runtime was executed.",
+    "No power-loss, NTFS or cloud-synced-folder reliability is implied by Linux tests."
+  ]
+}

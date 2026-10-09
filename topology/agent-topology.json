@@ -1,0 +1,220 @@
+{
+  "schema_version": "1.0",
+  "generated_from": "Python AST static imports; no runtime dependency discovery",
+  "coordinate_system": "logical grid, not measured physical distance",
+  "nodes": [
+    {
+      "id": "agentsearch.__main__",
+      "kind": "module",
+      "path": "agentsearch/__main__.py",
+      "x": -2,
+      "y": 0,
+      "sha256": "9012b3cbb7b54b6d8964c422551f943e63d01dddadb340a46c088fdc988bb3a7"
+    },
+    {
+      "id": "agentsearch._version",
+      "kind": "module",
+      "path": "agentsearch/_version.py",
+      "x": 4,
+      "y": 2,
+      "sha256": "c1436e7a844e95f73d488bfb4691c3d4da66ce3df1f903d950d519117d9ccdcc"
+    },
+    {
+      "id": "agentsearch.adapter",
+      "kind": "module",
+      "path": "agentsearch/adapter.py",
+      "x": 4,
+      "y": 0,
+      "sha256": "92c7b793f758f28b9cdad9cca0f3dc442c3563a6ee9fc1895b6ce078be864b73"
+    },
+    {
+      "id": "agentsearch.cli",
+      "kind": "module",
+      "path": "agentsearch/cli.py",
+      "x": 0,
+      "y": 0,
+      "sha256": "ee65b52f93c036eec36ceae5b34765bcc28b75cc8af499d1d37e8650b1639d00"
+    },
+    {
+      "id": "agentsearch.config",
+      "kind": "module",
+      "path": "agentsearch/config.py",
+      "x": 8,
+      "y": 1,
+      "sha256": "2aceb6fd8a0687f842b6f4485470d9185c8cb5e05913d45bb366d01323addf66"
+    },
+    {
+      "id": "agentsearch.engine",
+      "kind": "module",
+      "path": "agentsearch/engine.py",
+      "x": 6,
+      "y": 0,
+      "sha256": "e17570e3a6c62f8294fa6d7b3eebbdbe22b574fada89ca7003551bd641811717"
+    },
+    {
+      "id": "agentsearch.evidence",
+      "kind": "module",
+      "path": "agentsearch/evidence.py",
+      "x": 8,
+      "y": -1,
+      "sha256": "e655a3fbf488618c4bee2f8e9ae4dd9f5f24096a9c17fa047697174f0475d821"
+    },
+    {
+      "id": "agentsearch.protocol",
+      "kind": "module",
+      "path": "agentsearch/protocol.py",
+      "x": 2,
+      "y": 0,
+      "sha256": "176bc429bddfc1bfaaddd8ad97ec824c13f79c7d0eeae9a26a7d37510e38bf91"
+    },
+    {
+      "id": "agentsearch.verify",
+      "kind": "module",
+      "path": "agentsearch/verify.py",
+      "x": 0,
+      "y": 2,
+      "sha256": "eb42a33d26be80e794ca2c41651d8ca1e8693e52205c3e7fc2966806ca8535db"
+    },
+    {
+      "id": "interface.python",
+      "kind": "interface",
+      "x": -4,
+      "y": 0,
+      "path": null
+    },
+    {
+      "id": "interface.jsonl",
+      "kind": "interface",
+      "x": -4,
+      "y": 2,
+      "path": null
+    },
+    {
+      "id": "interface.mcp",
+      "kind": "interface",
+      "x": -4,
+      "y": 4,
+      "path": null
+    },
+    {
+      "id": "interface.powershell",
+      "kind": "interface",
+      "x": -4,
+      "y": 6,
+      "path": null
+    }
+  ],
+  "edges": [
+    {
+      "from": "interface.python",
+      "to": "agentsearch.adapter",
+      "kind": "calls",
+      "protocol": "python"
+    },
+    {
+      "from": "interface.jsonl",
+      "to": "agentsearch.protocol",
+      "kind": "calls",
+      "protocol": "jsonl"
+    },
+    {
+      "from": "interface.mcp",
+      "to": "agentsearch.protocol",
+      "kind": "calls",
+      "protocol": "mcp"
+    },
+    {
+      "from": "interface.powershell",
+      "to": "agentsearch.cli",
+      "kind": "calls",
+      "protocol": "powershell"
+    },
+    {
+      "from": "agentsearch.__main__",
+      "to": "agentsearch.cli",
+      "kind": "imports"
+    },
+    {
+      "from": "agentsearch.adapter",
+      "to": "agentsearch.engine",
+      "kind": "imports"
+    },
+    {
+      "from": "agentsearch.adapter",
+      "to": "agentsearch.evidence",
+      "kind": "imports"
+    },
+    {
+      "from": "agentsearch.cli",
+      "to": "agentsearch.adapter",
+      "kind": "imports"
+    },
+    {
+      "from": "agentsearch.cli",
+      "to": "agentsearch.config",
+      "kind": "imports"
+    },
+    {
+      "from": "agentsearch.cli",
+      "to": "agentsearch.engine",
+      "kind": "imports"
+    },
+    {
+      "from": "agentsearch.cli",
+      "to": "agentsearch.protocol",
+      "kind": "imports"
+    },
+    {
+      "from": "agentsearch.engine",
+      "to": "agentsearch._version",
+      "kind": "imports"
+    },
+    {
+      "from": "agentsearch.engine",
+      "to": "agentsearch.config",
+      "kind": "imports"
+    },
+    {
+      "from": "agentsearch.protocol",
+      "to": "agentsearch._version",
+      "kind": "imports"
+    },
+    {
+      "from": "agentsearch.protocol",
+      "to": "agentsearch.adapter",
+      "kind": "imports"
+    },
+    {
+      "from": "agentsearch.protocol",
+      "to": "agentsearch.engine",
+      "kind": "imports"
+    },
+    {
+      "from": "agentsearch.verify",
+      "to": "agentsearch._version",
+      "kind": "imports"
+    }
+  ],
+  "constraints": {
+    "trust": "source text untrusted",
+    "allowed_roots": "host-configured",
+    "source_writes": "none from retrieval tools",
+    "mcp_transport": "stdio only",
+    "freshness": "check complete and index metadata"
+  },
+  "integration": {
+    "entrypoints": {
+      "python": "agentsearch.adapter.AgentSearchAdapter",
+      "mcp": "python -m agentsearch mcp",
+      "jsonl": "python -m agentsearch stdio",
+      "windows": "AgentSearch.ps1 -Action Mcp"
+    },
+    "tools": [
+      "file_search",
+      "content_search",
+      "read_file",
+      "verify_evidence",
+      "index_status"
+    ]
+  }
+}

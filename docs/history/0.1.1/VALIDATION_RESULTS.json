@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "package": "AgentSearch",
+  "version": "0.1.0",
+  "verified_at_utc": "2026-10-08T23:38:52.158589+00:00",
+  "command": "python -m unittest discover -s tests -v",
+  "environment": {
+    "system": "Linux",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "python": "3.12.14",
+    "sqlite": "3.53.1"
+  },
+  "results": {
+    "collected": 33,
+    "passed": 31,
+    "failed": 0,
+    "errors": 0,
+    "skipped": 2,
+    "elapsed_seconds": 0.4704
+  },
+  "passed_tests": [
+    "test_engine.CoverageBoundaryTests.test_excluded_large_and_binary_files_have_distinct_coverage",
+    "test_engine.EngineBehaviorTests.test_add_change_rename_delete_and_reopen",
+    "test_engine.EngineBehaviorTests.test_adjacent_transposition_finds_filename",
+    "test_engine.EngineBehaviorTests.test_deleted_candidate_is_not_returned_as_content_evidence",
+    "test_engine.EngineBehaviorTests.test_fresh_grep_reconciles_changed_and_new_files",
+    "test_engine.EngineBehaviorTests.test_indexed_candidates_are_verified_against_current_content",
+    "test_engine.EngineBehaviorTests.test_literal_substring_punctuation_case_and_short_patterns",
+    "test_engine.EngineBehaviorTests.test_outside_scope_and_read_are_rejected",
+    "test_engine.EngineBehaviorTests.test_read_line_and_character_limits",
+    "test_engine.EngineBehaviorTests.test_subdirectory_scope_and_extension_isolate_results",
+    "test_engine.EngineBehaviorTests.test_symlink_does_not_escape_authorized_root",
+    "test_engine.EngineBehaviorTests.test_temporarily_missing_root_marks_incomplete_without_mass_deletion",
+    "test_engine.EngineBehaviorTests.test_unicode_and_spaces_survive_search_and_read",
+    "test_engine.EngineBehaviorTests.test_unicode_casefold_expansion_keeps_source_snippet_accurate",
+    "test_engine.EngineBehaviorTests.test_utf16_with_bom_is_decoded_as_text",
+    "test_integrity.IntegrityTests.test_config_change_requires_reconciliation_and_removes_old_scope",
+    "test_integrity.IntegrityTests.test_literal_index_agrees_with_direct_reads_on_seeded_corpus",
+    "test_integrity.IntegrityTests.test_never_indexed_is_an_error_not_a_negative_search",
+    "test_integrity.IntegrityTests.test_result_and_aggregate_text_caps_are_visible",
+    "test_integrity.IntegrityTests.test_utf8_bom_config_preserves_explicit_scope",
+    "test_protocol.ProtocolTests.test_engine_failure_is_not_an_empty_success",
+    "test_protocol.ProtocolTests.test_global_paths_survive_subcommands_in_either_position",
+    "test_protocol.ProtocolTests.test_jsonl_recovers_after_bad_and_oversized_request",
+    "test_protocol.ProtocolTests.test_jsonl_unknown_operation_and_extra_field_do_not_reach_engine",
+    "test_protocol.ProtocolTests.test_mcp_negotiates_supported_and_fallback_versions",
+    "test_protocol.ProtocolTests.test_mcp_stream_returns_only_response_lines_and_retains_partial_flag",
+    "test_protocol.ProtocolTests.test_mcp_tool_failure_is_visible_to_model",
+    "test_protocol.ProtocolTests.test_nan_and_json_rpc_batch_rejected",
+    "test_protocol.ProtocolTests.test_schema_rejects_mutations_unknown_fields_and_bool_numbers",
+    "test_protocol.ProtocolTests.test_subprocess_cli_jsonl_and_mcp_with_persisted_index",
+    "test_protocol.ProtocolTests.test_tools_cannot_run_before_initialization_or_as_notifications"
+  ],
+  "skipped_tests": [
+    {
+      "test": "test_windows_paths.NativeWindowsPathTests.test_drive_path_with_spaces_unicode_and_both_separators",
+      "reason": "Requires a native Windows filesystem"
+    },
+    {
+      "test": "test_windows_paths.NativeWindowsPathTests.test_parent_traversal_cannot_leave_configured_root",
+      "reason": "Requires a native Windows filesystem"
+    }
+  ],
+  "source_sha256": {
+    "agentsearch/__init__.py": "db8c3a918779250975d59bf6515cb52590808e04f359d5901dfd471826a73b37",
+    "agentsearch/__main__.py": "9012b3cbb7b54b6d8964c422551f943e63d01dddadb340a46c088fdc988bb3a7",
+    "agentsearch/adapter.py": "b4db2d15b5a629dba06c1a942d977ba1f59d0fa344eb5676f7fd1384489e1b33",
+    "agentsearch/cli.py": "affe67789467f7b26f303de8ac7570fc704c7b0a3fb7a38ef3a8f524f2279e3f",
+    "agentsearch/config.py": "2aceb6fd8a0687f842b6f4485470d9185c8cb5e05913d45bb366d01323addf66",
+    "agentsearch/engine.py": "679f570fd0a34d4acae878e9ca1188f3b5762c42eabe871717a3dc588262273e",
+    "agentsearch/protocol.py": "ad98fc5dd5ca85a503560c0d9c0f0def62e69fab0bdd58dac45c678d9d96f6f4",
+    "tests/test_engine.py": "d332cbdeaa790aac15a875764015c4747d1c7eb2bba6df74fd05ca2bfade1fb7",
+    "tests/test_integrity.py": "17e5a6c102df16d08be71e17b0cb2c814a5cf46dd2ea1f90d569af136917df5e",
+    "tests/test_protocol.py": "636f108e0989f493b1404222c6e459b50f26d0bd72071ebddfcb33b78934cd11",
+    "tests/test_windows_paths.py": "205a65cc7bab163e0b8d274865129e3d74f0178964d2b27ac7fab3d16a428a4e"
+  },
+  "verified": [
+    "Portable engine lifecycle and scope",
+    "Literal retrieval compared to direct reads on a seeded 40-file corpus",
+    "Unicode/UTF-16/source snippet mapping",
+    "Partial results and aggregate output bounds",
+    "Actual Python CLI/JSONL/MCP subprocesses",
+    "Restart using persisted configuration",
+    "Protocol error handling and no tool calls through notifications"
+  ],
+  "not_executed": [
+    "Native Windows filesystem tests",
+    "PowerShell execution",
+    "Real Pegasus or Hermes registration",
+    "Full MCP conformance or third-party MCP client",
+    "Whole-disk-scale or competitor benchmarks"
+  ],
+  "full_test_output": "test_excluded_large_and_binary_files_have_distinct_coverage (test_engine.CoverageBoundaryTests.test_excluded_large_and_binary_files_have_distinct_coverage) ... ok\ntest_add_change_rename_delete_and_reopen (test_engine.EngineBehaviorTests.test_add_change_rename_delete_and_reopen) ... ok\ntest_adjacent_transposition_finds_filename (test_engine.EngineBehaviorTests.test_adjacent_transposition_finds_filename) ... ok\ntest_deleted_candidate_is_not_returned_as_content_evidence (test_engine.EngineBehaviorTests.test_deleted_candidate_is_not_returned_as_content_evidence) ... ok\ntest_fresh_grep_reconciles_changed_and_new_files (test_engine.EngineBehaviorTests.test_fresh_grep_reconciles_changed_and_new_files) ... ok\ntest_indexed_candidates_are_verified_against_current_content (test_engine.EngineBehaviorTests.test_indexed_candidates_are_verified_against_current_content) ... ok\ntest_literal_substring_punctuation_case_and_short_patterns (test_engine.EngineBehaviorTests.test_literal_substring_punctuation_case_and_short_patterns) ... ok\ntest_outside_scope_and_read_are_rejected (test_engine.EngineBehaviorTests.test_outside_scope_and_read_are_rejected) ... ok\ntest_read_line_and_character_limits (test_engine.EngineBehaviorTests.test_read_line_and_character_limits) ... ok\ntest_subdirectory_scope_and_extension_isolate_results (test_engine.EngineBehaviorTests.test_subdirectory_scope_and_extension_isolate_results) ... ok\ntest_symlink_does_not_escape_authorized_root (test_engine.EngineBehaviorTests.test_symlink_does_not_escape_authorized_root) ... ok\ntest_temporarily_missing_root_marks_incomplete_without_mass_deletion (test_engine.EngineBehaviorTests.test_temporarily_missing_root_marks_incomplete_without_mass_deletion) ... ok\ntest_unicode_and_spaces_survive_search_and_read (test_engine.EngineBehaviorTests.test_unicode_and_spaces_survive_search_and_read) ... ok\ntest_unicode_casefold_expansion_keeps_source_snippet_accurate (test_engine.EngineBehaviorTests.test_unicode_casefold_expansion_keeps_source_snippet_accurate) ... ok\ntest_utf16_with_bom_is_decoded_as_text (test_engine.EngineBehaviorTests.test_utf16_with_bom_is_decoded_as_text) ... ok\ntest_config_change_requires_reconciliation_and_removes_old_scope (test_integrity.IntegrityTests.test_config_change_requires_reconciliation_and_removes_old_scope) ... ok\ntest_literal_index_agrees_with_direct_reads_on_seeded_corpus (test_integrity.IntegrityTests.test_literal_index_agrees_with_direct_reads_on_seeded_corpus) ... ok\ntest_never_indexed_is_an_error_not_a_negative_search (test_integrity.IntegrityTests.test_never_indexed_is_an_error_not_a_negative_search) ... ok\ntest_result_and_aggregate_text_caps_are_visible (test_integrity.IntegrityTests.test_result_and_aggregate_text_caps_are_visible) ... ok\ntest_utf8_bom_config_preserves_explicit_scope (test_integrity.IntegrityTests.test_utf8_bom_config_preserves_explicit_scope) ... ok\ntest_engine_failure_is_not_an_empty_success (test_protocol.ProtocolTests.test_engine_failure_is_not_an_empty_success) ... ok\ntest_global_paths_survive_subcommands_in_either_position (test_protocol.ProtocolTests.test_global_paths_survive_subcommands_in_either_position) ... ok\ntest_jsonl_recovers_after_bad_and_oversized_request (test_protocol.ProtocolTests.test_jsonl_recovers_after_bad_and_oversized_request) ... ok\ntest_jsonl_unknown_operation_and_extra_field_do_not_reach_engine (test_protocol.ProtocolTests.test_jsonl_unknown_operation_and_extra_field_do_not_reach_engine) ... ok\ntest_mcp_negotiates_supported_and_fallback_versions (test_protocol.ProtocolTests.test_mcp_negotiates_supported_and_fallback_versions) ... ok\ntest_mcp_stream_returns_only_response_lines_and_retains_partial_flag (test_protocol.ProtocolTests.test_mcp_stream_returns_only_response_lines_and_retains_partial_flag) ... ok\ntest_mcp_tool_failure_is_visible_to_model (test_protocol.ProtocolTests.test_mcp_tool_failure_is_visible_to_model) ... ok\ntest_nan_and_json_rpc_batch_rejected (test_protocol.ProtocolTests.test_nan_and_json_rpc_batch_rejected) ... ok\ntest_schema_rejects_mutations_unknown_fields_and_bool_numbers (test_protocol.ProtocolTests.test_schema_rejects_mutations_unknown_fields_and_bool_numbers) ... ok\ntest_subprocess_cli_jsonl_and_mcp_with_persisted_index (test_protocol.ProtocolTests.test_subprocess_cli_jsonl_and_mcp_with_persisted_index) ... ok\ntest_tools_cannot_run_before_initialization_or_as_notifications (test_protocol.ProtocolTests.test_tools_cannot_run_before_initialization_or_as_notifications) ... ok\ntest_drive_path_with_spaces_unicode_and_both_separators (test_windows_paths.NativeWindowsPathTests.test_drive_path_with_spaces_unicode_and_both_separators) ... skipped 'Requires a native Windows filesystem'\ntest_parent_traversal_cannot_leave_configured_root (test_windows_paths.NativeWindowsPathTests.test_parent_traversal_cannot_leave_configured_root) ... skipped 'Requires a native Windows filesystem'\n\n----------------------------------------------------------------------\nRan 33 tests in 0.468s\n\nOK (skipped=2)\n"
+}

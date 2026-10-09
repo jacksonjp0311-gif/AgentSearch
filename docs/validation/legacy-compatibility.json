@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "source_schema": "1",
+  "source_runtime": "0.1.0 (from supplied 0.1.1 ZIP)",
+  "target_runtime": "0.2.0",
+  "read_before_reindex": true,
+  "noop_reindex_updated": 0,
+  "generation_before": 0,
+  "generation_after": 1,
+  "source_sha256": {
+    "agentsearch/__init__.py": "e673f00ac6f4d3e4a56d899a2b814a26472b945cc17ea78c3c4487a709046ac7",
+    "agentsearch/__main__.py": "9012b3cbb7b54b6d8964c422551f943e63d01dddadb340a46c088fdc988bb3a7",
+    "agentsearch/_version.py": "3ca62729700c56751ebcbca100ede622d23eda7fd8f48e1ed080e9baaf1f559e",
+    "agentsearch/adapter.py": "11328597acb365a8160ec74a7c0ac19a7cc5bb0e78fcb5acb819c5abb2c7e503",
+    "agentsearch/cli.py": "ee65b52f93c036eec36ceae5b34765bcc28b75cc8af499d1d37e8650b1639d00",
+    "agentsearch/config.py": "2aceb6fd8a0687f842b6f4485470d9185c8cb5e05913d45bb366d01323addf66",
+    "agentsearch/engine.py": "e17570e3a6c62f8294fa6d7b3eebbdbe22b574fada89ca7003551bd641811717",
+    "agentsearch/protocol.py": "176bc429bddfc1bfaaddd8ad97ec824c13f79c7d0eeae9a26a7d37510e38bf91",
+    "agentsearch/verify.py": "eb42a33d26be80e794ca2c41651d8ca1e8693e52205c3e7fc2966806ca8535db",
+    "tests/test_engine.py": "d332cbdeaa790aac15a875764015c4747d1c7eb2bba6df74fd05ca2bfade1fb7",
+    "tests/test_integrity.py": "17e5a6c102df16d08be71e17b0cb2c814a5cf46dd2ea1f90d569af136917df5e",
+    "tests/test_protocol.py": "636f108e0989f493b1404222c6e459b50f26d0bd72071ebddfcb33b78934cd11",
+    "tests/test_reliability.py": "2cda53333f335ed76cadf387201fde3e71f872c83fcf26f98332f33a258faaab",
+    "tests/test_verification.py": "cb5a057fafbc16c2782dc1bd62a77b1c7bdf19a96d9b351cd26f8b2a72c24f3a",
+    "tests/test_windows_paths.py": "5b170b038829efbd73c2754a83e218f33b3c6cfccb5d95280dc4a9adc4943921",
+    "examples/benchmark.py": "778393111201b4a3f9f8c2f07b8da2f57da2755a6a20b11fa66984c65bfb7f51",
+    "examples/build_demo.py": "4c21040c01e5972bec0cda5fe2110fe1ad94e4d4e86a8f9d68a6fceff5159ece",
+    "examples/harness_demo.py": "ef1a1634ab405f7f2a2509d038b65c93a33cc85e848050408ac50ae6dd22913d",
+    "examples/reliability_soak.py": "cc78ffcf97d95238adfce6f55d1ff63efc00900861ddf0585972fedf601d950e",
+    "AgentSearch.ps1": "07ba1472745d50250984f7242a4ed9c2010db22584d2fefe9826cce5a9e3bb70",
+    "pyproject.toml": "5773ecef7eb28bb50e3560f8cb60c50b91334d8ad94bdd6957284211e5587437"
+  }
+}

@@ -1,0 +1,9 @@
+flowchart LR
+  H[Agent harness] --> A[Adapter / MCP / JSONL]
+  A --> E[Search engine]
+  E --> DB[(SQLite index)]
+  E --> FS[(Approved local roots)]
+  A --> V[Evidence verifier]
+  V --> FS
+  FS --> R[Bounded evidence + freshness]
+  R --> H

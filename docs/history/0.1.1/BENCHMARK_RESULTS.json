@@ -1,0 +1,314 @@
+{
+  "schema_version": "1.0",
+  "measured_at_utc": "2026-10-08T23:39:17.686475+00:00",
+  "benchmark_kind": "synthetic_single_implementation",
+  "engine_source_sha256": "679f570fd0a34d4acae878e9ca1188f3b5762c42eabe871717a3dc588262273e",
+  "config_source_sha256": "2aceb6fd8a0687f842b6f4485470d9185c8cb5e05913d45bb366d01323addf66",
+  "benchmark_source_sha256": "c810aebe757642330541e2ed40a8668968a01bf0b953480675c29070052c7316",
+  "environment": {
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+    "system": "Linux",
+    "machine": "x86_64",
+    "python": "3.12.14",
+    "sqlite": "3.53.1",
+    "logical_cpu_count": 9,
+    "storage_medium": "not measured"
+  },
+  "corpus": {
+    "seed": 20261008,
+    "files": 2000,
+    "content_bytes": 1520312,
+    "manifest_sha256": "1d19dfb44a35001bf16f90506f5731f057ecac0a51b35478a177721df907f02d",
+    "description": "UTF-8 text files; deterministic synthetic receipts, unique literal markers, one short and one Unicode sentinel",
+    "directories": 20
+  },
+  "setup": {
+    "engine_open_ms": 1.5303,
+    "cold_index_ms": 460.7267,
+    "cold_definition": "First index build with an empty database; OS filesystem caches were not flushed",
+    "index_result": {
+      "ok": true,
+      "complete": true,
+      "finished_at": "2026-10-08T23:39:04.853621+00:00",
+      "scanned_files": 2000,
+      "updated": 2000,
+      "unchanged": 0,
+      "removed": 0,
+      "config_reset": false,
+      "skipped": {},
+      "content_counts": {
+        "indexed": 2000
+      },
+      "errors": [],
+      "error_count": 0,
+      "warnings": [],
+      "elapsed_ms": 453.149
+    }
+  },
+  "query_policy": {
+    "repetitions_per_class": 20,
+    "unmeasured_warmups_per_class": 1,
+    "limit": 20,
+    "budget_ms": 1000,
+    "p95_method": "nearest rank"
+  },
+  "warm_queries": [
+    {
+      "class": "filename_exact",
+      "query": "receipt_01000_checkpoint.txt",
+      "expected_relative_path": "batch_010/receipt_01000_checkpoint.txt",
+      "correctness": {
+        "passed": 20,
+        "checked": 20
+      },
+      "complete_responses": 20,
+      "samples": 20,
+      "p50_ms": 0.6984,
+      "p95_ms": 0.8432,
+      "min_ms": 0.6323,
+      "max_ms": 0.8687,
+      "raw_samples_ms": [
+        0.755,
+        0.697,
+        0.7725,
+        0.8031,
+        0.668,
+        0.822,
+        0.7858,
+        0.8687,
+        0.8432,
+        0.6603,
+        0.7052,
+        0.7151,
+        0.6524,
+        0.6355,
+        0.6532,
+        0.6438,
+        0.6517,
+        0.6998,
+        0.6443,
+        0.6323
+      ]
+    },
+    {
+      "class": "filename_transposition",
+      "query": "receipt_01000_checkpiont.txt",
+      "expected_relative_path": "batch_010/receipt_01000_checkpoint.txt",
+      "correctness": {
+        "passed": 20,
+        "checked": 20
+      },
+      "complete_responses": 0,
+      "samples": 20,
+      "p50_ms": 351.714,
+      "p95_ms": 364.2043,
+      "min_ms": 337.5394,
+      "max_ms": 366.5805,
+      "raw_samples_ms": [
+        352.334,
+        364.2043,
+        360.9164,
+        348.489,
+        351.5522,
+        352.1924,
+        350.4297,
+        357.6012,
+        363.7623,
+        366.5805,
+        360.2805,
+        350.1735,
+        351.8757,
+        337.5394,
+        345.3091,
+        350.2107,
+        348.0665,
+        342.6296,
+        346.7463,
+        356.0881
+      ]
+    },
+    {
+      "class": "content_literal_punctuation",
+      "query": "receipt::d3b86151bd83a2e8[1000]=accepted",
+      "expected_relative_path": "batch_010/receipt_01000_checkpoint.txt",
+      "correctness": {
+        "passed": 20,
+        "checked": 20
+      },
+      "complete_responses": 20,
+      "samples": 20,
+      "p50_ms": 0.8178,
+      "p95_ms": 0.9209,
+      "min_ms": 0.7561,
+      "max_ms": 0.9755,
+      "raw_samples_ms": [
+        0.9209,
+        0.8761,
+        0.9755,
+        0.9075,
+        0.8158,
+        0.8415,
+        0.8379,
+        0.8218,
+        0.843,
+        0.8107,
+        0.7688,
+        0.7835,
+        0.7852,
+        0.8166,
+        0.7833,
+        0.7561,
+        0.7879,
+        0.7797,
+        0.819,
+        0.8463
+      ]
+    },
+    {
+      "class": "content_short_literal",
+      "query": "~^",
+      "expected_relative_path": "batch_000/receipt_00003_checkpoint.txt",
+      "correctness": {
+        "passed": 20,
+        "checked": 20
+      },
+      "complete_responses": 20,
+      "samples": 20,
+      "p50_ms": 244.4205,
+      "p95_ms": 276.7961,
+      "min_ms": 237.6506,
+      "max_ms": 311.108,
+      "raw_samples_ms": [
+        241.4816,
+        243.6837,
+        239.614,
+        242.5468,
+        245.0378,
+        238.6286,
+        240.5518,
+        241.3552,
+        237.6506,
+        240.0032,
+        249.031,
+        243.8032,
+        264.0501,
+        246.3432,
+        249.1589,
+        311.108,
+        262.4014,
+        266.2641,
+        274.4107,
+        276.7961
+      ]
+    },
+    {
+      "class": "content_unicode_literal",
+      "query": "café_雪_unique",
+      "expected_relative_path": "batch_000/receipt_00007_checkpoint.txt",
+      "correctness": {
+        "passed": 20,
+        "checked": 20
+      },
+      "complete_responses": 20,
+      "samples": 20,
+      "p50_ms": 0.2608,
+      "p95_ms": 0.4247,
+      "min_ms": 0.2288,
+      "max_ms": 0.5232,
+      "raw_samples_ms": [
+        0.2589,
+        0.2861,
+        0.4247,
+        0.2921,
+        0.3175,
+        0.2471,
+        0.2436,
+        0.2628,
+        0.3574,
+        0.5232,
+        0.2711,
+        0.2448,
+        0.2348,
+        0.2631,
+        0.2352,
+        0.2318,
+        0.4138,
+        0.2484,
+        0.2417,
+        0.2288
+      ]
+    }
+  ],
+  "fresh_after_write": {
+    "elapsed_ms_including_reconciliation": 54.0684,
+    "correct": true,
+    "expected_relative_path": "batch_000/receipt_00000_checkpoint.txt"
+  },
+  "correctness": {
+    "passed": 101,
+    "checked": 101,
+    "all_passed": true
+  },
+  "final_status": {
+    "ok": true,
+    "version": "0.1.0",
+    "schema_version": "1",
+    "database": "/tmp/agentsearch-benchmark-w2eo0tza/index.sqlite3",
+    "config": {
+      "roots": [
+        "/tmp/agentsearch-benchmark-w2eo0tza/corpus"
+      ],
+      "exclude_dirs": [
+        ".git",
+        "node_modules",
+        "__pycache__",
+        ".venv",
+        "venv",
+        "target",
+        "dist",
+        "build"
+      ],
+      "max_file_bytes": 2097152
+    },
+    "files": 2000,
+    "text_files": 2000,
+    "index": {
+      "indexed_at": "2026-10-08T23:39:17.685269+00:00",
+      "enumeration_complete": true,
+      "freshness": "last_index_scan; source matches reread on query",
+      "max_file_bytes": 2097152,
+      "content_counts": {
+        "indexed": 2000
+      }
+    },
+    "last_index": {
+      "ok": true,
+      "complete": true,
+      "finished_at": "2026-10-08T23:39:17.685269+00:00",
+      "scanned_files": 2000,
+      "updated": 1,
+      "unchanged": 1999,
+      "removed": 0,
+      "config_reset": false,
+      "skipped": {},
+      "content_counts": {
+        "indexed": 2000
+      },
+      "errors": [],
+      "error_count": 0,
+      "warnings": [],
+      "elapsed_ms": 53.198
+    },
+    "backend": "sqlite_fts5_trigram",
+    "watcher": "polling",
+    "warnings": []
+  },
+  "limitations": [
+    "Synthetic text-only corpus does not represent a whole disk or a large production repository.",
+    "Warm repeated queries benefit from process and operating-system caches.",
+    "A complete response does not by itself prove complete filesystem coverage.",
+    "No FSearch, ripgrep, Everything, or other implementation was benchmarked here.",
+    "Native platform validation is limited to the environment recorded in this receipt."
+  ],
+  "total_elapsed_ms": 13529.9233
+}

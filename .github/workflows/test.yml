@@ -1,0 +1,59 @@
+name: AgentSearch tests
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ['3.11', '3.12', '3.13']
+    runs-on: ${{ matrix.os }}
+    env:
+      PYTHONUTF8: '1'
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Runtime capability check
+        shell: python
+        run: |
+          import sqlite3
+          import sys
+          db = sqlite3.connect(':memory:')
+          db.execute("CREATE VIRTUAL TABLE probe USING fts5(body, tokenize='trigram')")
+          print(sys.version)
+          print('SQLite', sqlite3.sqlite_version)
+      - name: Functional suite
+        run: python -m agentsearch.verify --repeat 3 --output state/verification.json
+      - name: Windows launcher setup
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: .\AgentSearch.ps1 -Action Setup
+      - name: Windows launcher index
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: .\AgentSearch.ps1 -Action Index
+      - name: Windows launcher search
+        if: runner.os == 'Windows'
+        shell: powershell
+        run: .\AgentSearch.ps1 -Action Search -Query 'checkpoint'
+      - name: Windows launcher status with PowerShell 7
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: .\AgentSearch.ps1 -Action Status
+      - name: Preserve verification receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: verification-${{ matrix.os }}-${{ matrix.python-version }}
+          path: state/verification.json

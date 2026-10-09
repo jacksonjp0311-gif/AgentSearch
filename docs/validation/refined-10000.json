@@ -1,0 +1,271 @@
+{
+  "schema_version": "1.0",
+  "measured_at_utc": "2026-10-09T00:56:50.199246+00:00",
+  "benchmark_kind": "synthetic_single_implementation",
+  "engine_source_sha256": "e17570e3a6c62f8294fa6d7b3eebbdbe22b574fada89ca7003551bd641811717",
+  "config_source_sha256": "2aceb6fd8a0687f842b6f4485470d9185c8cb5e05913d45bb366d01323addf66",
+  "benchmark_source_sha256": "778393111201b4a3f9f8c2f07b8da2f57da2755a6a20b11fa66984c65bfb7f51",
+  "environment": {
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+    "system": "Linux",
+    "machine": "x86_64",
+    "python": "3.13.5",
+    "sqlite": "3.46.1",
+    "logical_cpu_count": 5,
+    "storage_medium": "not measured"
+  },
+  "corpus": {
+    "seed": 20261008,
+    "files": 10000,
+    "content_bytes": 7615832,
+    "manifest_sha256": "237d406a9940aa671434e00429b4f8e6b7e77d3a1f8f447ee12656551f7c53bf",
+    "description": "UTF-8 text files; deterministic synthetic receipts, unique literal markers, one short and one Unicode sentinel",
+    "directories": 100
+  },
+  "setup": {
+    "engine_open_ms": 2.0104,
+    "cold_index_ms": 3374.4954,
+    "cold_definition": "First index build with an empty database; OS filesystem caches were not flushed",
+    "index_result": {
+      "ok": true,
+      "generation": 1,
+      "force": false,
+      "complete": true,
+      "finished_at": "2026-10-09T00:56:41.927109+00:00",
+      "scanned_files": 10000,
+      "updated": 10000,
+      "unchanged": 0,
+      "removed": 0,
+      "config_reset": false,
+      "skipped": {},
+      "content_counts": {
+        "indexed": 10000
+      },
+      "errors": [],
+      "error_count": 0,
+      "warnings": [],
+      "elapsed_ms": 3349.552
+    }
+  },
+  "query_policy": {
+    "repetitions_per_class": 10,
+    "unmeasured_warmups_per_class": 1,
+    "limit": 20,
+    "budget_ms": 5000,
+    "p95_method": "nearest rank"
+  },
+  "warm_queries": [
+    {
+      "class": "filename_exact",
+      "query": "receipt_05000_checkpoint.txt",
+      "expected_relative_path": "batch_050/receipt_05000_checkpoint.txt",
+      "correctness": {
+        "passed": 10,
+        "checked": 10
+      },
+      "complete_responses": 10,
+      "samples": 10,
+      "p50_ms": 2.3669,
+      "p95_ms": 2.6307,
+      "min_ms": 2.3103,
+      "max_ms": 2.6307,
+      "raw_samples_ms": [
+        2.6307,
+        2.4857,
+        2.4373,
+        2.4019,
+        2.3487,
+        2.3851,
+        2.3451,
+        2.3473,
+        2.3445,
+        2.3103
+      ]
+    },
+    {
+      "class": "filename_transposition",
+      "query": "receipt_05000_checkpiont.txt",
+      "expected_relative_path": "batch_050/receipt_05000_checkpoint.txt",
+      "correctness": {
+        "passed": 10,
+        "checked": 10
+      },
+      "complete_responses": 0,
+      "samples": 10,
+      "p50_ms": 688.8416,
+      "p95_ms": 816.3395,
+      "min_ms": 674.4842,
+      "max_ms": 816.3395,
+      "raw_samples_ms": [
+        688.8135,
+        715.2075,
+        688.8697,
+        816.3395,
+        674.4842,
+        676.1754,
+        680.1779,
+        674.7802,
+        719.3693,
+        714.2356
+      ]
+    },
+    {
+      "class": "content_literal_punctuation",
+      "query": "receipt::f8dbe4963fbf69a3[5000]=accepted",
+      "expected_relative_path": "batch_050/receipt_05000_checkpoint.txt",
+      "correctness": {
+        "passed": 10,
+        "checked": 10
+      },
+      "complete_responses": 10,
+      "samples": 10,
+      "p50_ms": 0.8763,
+      "p95_ms": 1.1359,
+      "min_ms": 0.8235,
+      "max_ms": 1.1359,
+      "raw_samples_ms": [
+        1.1359,
+        0.8956,
+        0.835,
+        0.8334,
+        0.8571,
+        1.1098,
+        0.9173,
+        0.8507,
+        0.8235,
+        1.1329
+      ]
+    },
+    {
+      "class": "content_short_literal",
+      "query": "~^",
+      "expected_relative_path": "batch_000/receipt_00003_checkpoint.txt",
+      "correctness": {
+        "passed": 10,
+        "checked": 10
+      },
+      "complete_responses": 10,
+      "samples": 10,
+      "p50_ms": 11.9681,
+      "p95_ms": 14.7175,
+      "min_ms": 10.2929,
+      "max_ms": 14.7175,
+      "raw_samples_ms": [
+        10.7125,
+        10.4371,
+        11.1257,
+        12.8106,
+        14.7175,
+        13.3798,
+        14.6146,
+        10.7488,
+        10.2929,
+        14.7062
+      ]
+    },
+    {
+      "class": "content_unicode_literal",
+      "query": "café_雪_unique",
+      "expected_relative_path": "batch_000/receipt_00007_checkpoint.txt",
+      "correctness": {
+        "passed": 10,
+        "checked": 10
+      },
+      "complete_responses": 10,
+      "samples": 10,
+      "p50_ms": 0.4657,
+      "p95_ms": 0.7029,
+      "min_ms": 0.3959,
+      "max_ms": 0.7029,
+      "raw_samples_ms": [
+        0.4849,
+        0.4156,
+        0.7029,
+        0.4604,
+        0.4479,
+        0.5887,
+        0.4151,
+        0.3959,
+        0.4709,
+        0.4809
+      ]
+    }
+  ],
+  "fresh_after_write": {
+    "elapsed_ms_including_reconciliation": 318.7365,
+    "correct": true,
+    "expected_relative_path": "batch_000/receipt_00000_checkpoint.txt"
+  },
+  "correctness": {
+    "passed": 51,
+    "checked": 51,
+    "all_passed": true
+  },
+  "final_status": {
+    "ok": true,
+    "version": "0.2.0",
+    "schema_version": "1",
+    "database": "/tmp/agentsearch-benchmark-u24u7it1/index.sqlite3",
+    "config": {
+      "roots": [
+        "/tmp/agentsearch-benchmark-u24u7it1/corpus"
+      ],
+      "exclude_dirs": [
+        ".git",
+        "node_modules",
+        "__pycache__",
+        ".venv",
+        "venv",
+        "target",
+        "dist",
+        "build"
+      ],
+      "max_file_bytes": 2097152
+    },
+    "files": 10000,
+    "text_files": 10000,
+    "index": {
+      "indexed_at": "2026-10-09T00:56:50.195353+00:00",
+      "generation": 2,
+      "candidate_source": "committed_index",
+      "atomic_filesystem_snapshot": false,
+      "enumeration_complete": true,
+      "freshness": "last_index_scan; source matches reread on query",
+      "max_file_bytes": 2097152,
+      "content_counts": {
+        "indexed": 10000
+      }
+    },
+    "last_index": {
+      "ok": true,
+      "generation": 2,
+      "force": false,
+      "complete": true,
+      "finished_at": "2026-10-09T00:56:50.195353+00:00",
+      "scanned_files": 10000,
+      "updated": 1,
+      "unchanged": 9999,
+      "removed": 0,
+      "config_reset": false,
+      "skipped": {},
+      "content_counts": {
+        "indexed": 10000
+      },
+      "errors": [],
+      "error_count": 0,
+      "warnings": [],
+      "elapsed_ms": 316.435
+    },
+    "backend": "sqlite_fts5_trigram",
+    "watcher": "polling",
+    "warnings": []
+  },
+  "limitations": [
+    "Synthetic text-only corpus does not represent a whole disk or a large production repository.",
+    "Warm repeated queries benefit from process and operating-system caches.",
+    "A complete response does not by itself prove complete filesystem coverage.",
+    "No FSearch, ripgrep, Everything, or other implementation was benchmarked here.",
+    "Native platform validation is limited to the environment recorded in this receipt."
+  ],
+  "total_elapsed_ms": 12992.4085
+}

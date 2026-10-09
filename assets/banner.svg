@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="440" viewBox="0 0 1440 440" role="img" aria-labelledby="title description">
+  <title id="title">AgentSearch</title>
+  <desc id="description">Persistent local search for AI agents. Windows-oriented, portable Python core, JSON and MCP interfaces.</desc>
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#081220"/>
+      <stop offset="1" stop-color="#12283c"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#75f0cf"/>
+      <stop offset="1" stop-color="#5ab4ff"/>
+    </linearGradient>
+    <pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse">
+      <path d="M 48 0 L 0 0 0 48" fill="none" stroke="#254059" stroke-width="1" opacity="0.35"/>
+    </pattern>
+  </defs>
+  <rect width="1440" height="440" rx="24" fill="url(#background)"/>
+  <rect width="1440" height="440" rx="24" fill="url(#grid)"/>
+  <rect x="62" y="61" width="5" height="45" rx="2.5" fill="url(#accent)"/>
+  <text x="88" y="90" fill="#87c9dd" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" letter-spacing="4">LOCAL TOOLS / PERSISTENT RETRIEVAL</text>
+  <text x="62" y="215" fill="#f0f7fc" font-family="Arial, Helvetica, sans-serif" font-size="94" font-weight="700" letter-spacing="-3">AgentSearch</text>
+  <text x="67" y="270" fill="#bfd0df" font-family="Arial, Helvetica, sans-serif" font-size="28">Give your agent a map of its workspace.</text>
+  <g transform="translate(66 323)">
+    <rect width="190" height="39" rx="9" fill="#19394a" stroke="#315663"/>
+    <text x="95" y="26" text-anchor="middle" fill="#9cefd6" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">WINDOWS + PYTHON</text>
+    <rect x="210" width="117" height="39" rx="9" fill="#19394a" stroke="#315663"/>
+    <text x="268.5" y="26" text-anchor="middle" fill="#b0d9fa" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700">JSON / MCP</text>
+    <text x="350" y="26" fill="#94adc1" font-family="Arial, Helvetica, sans-serif" font-size="15">0.2.0 · RELIABILITY RELEASE</text>
+  </g>
+  <g transform="translate(1080 201)" fill="none" stroke-linecap="round">
+    <circle r="111" stroke="#263f56" stroke-width="1.5"/>
+    <circle r="78" stroke="url(#accent)" stroke-width="7"/>
+    <path d="M57 57 L124 124" stroke="url(#accent)" stroke-width="15"/>
+    <path d="M-41 -20 H32 M-41 0 H44 M-41 20 H16" stroke="#a2d8e4" stroke-width="6"/>
+    <path d="M-125 -47 H-172 V-105 H-220 M-126 49 H-165 V111 H-208 M102 -77 H166 V-116 H205" stroke="#365b73" stroke-width="2"/>
+    <g fill="#75e8ce" stroke="none">
+      <circle cx="-220" cy="-105" r="6"/>
+      <circle cx="-208" cy="111" r="6"/>
+      <circle cx="205" cy="-116" r="6"/>
+    </g>
+  </g>
+</svg>
